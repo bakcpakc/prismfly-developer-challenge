@@ -2,6 +2,45 @@
   "sections": {
     "custom_collection": {
       "type": "custom_collection",
+      "blocks": {
+        "4b63ada6-49bb-4ece-942a-b2ff82051e4b": {
+          "type": "custom_collection",
+          "settings": {
+            "collection": "all"
+          }
+        },
+        "5eea9d2a-0c43-445e-bdce-8a12d7f6be3a": {
+          "type": "custom_collection",
+          "settings": {
+            "collection": "bases"
+          }
+        },
+        "03e7235f-6f82-424e-97ef-2a4d0143f020": {
+          "type": "custom_collection",
+          "settings": {
+            "collection": "bedding"
+          }
+        },
+        "0db6dd91-b611-4e1f-b782-dbea76815b62": {
+          "type": "custom_collection",
+          "settings": {
+            "collection": "bedroom"
+          }
+        },
+        "9e74b500-4228-43fa-ae30-570cfd1f5b26": {
+          "type": "custom_collection",
+          "settings": {
+            "collection": "mattresses"
+          }
+        }
+      },
+      "block_order": [
+        "4b63ada6-49bb-4ece-942a-b2ff82051e4b",
+        "5eea9d2a-0c43-445e-bdce-8a12d7f6be3a",
+        "03e7235f-6f82-424e-97ef-2a4d0143f020",
+        "0db6dd91-b611-4e1f-b782-dbea76815b62",
+        "9e74b500-4228-43fa-ae30-570cfd1f5b26"
+      ],
       "settings": {
       }
     }
