@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "custom_collection": {
+      "type": "custom_collection",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "custom_collection"
+  ]
+}

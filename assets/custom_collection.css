@@ -1,0 +1,26 @@
+.section_header {
+    border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+}
+
+.header_desktop {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 800px;
+    margin: auto;
+    column-gap: 2px;
+}
+
+.desktop-header--item:hover {
+    color: #004892;
+    border-bottom: 2px solid #004892;
+}
+.desktop-header--item {
+    display: flex;
+    /* flex-grow: 1; */
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 30px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+}
