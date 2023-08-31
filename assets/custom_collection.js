@@ -66,3 +66,14 @@ function updateLinkCta(filter){
         location.href = `/collections/${filter}`
     });
 }
+
+window.addEventListener('resize', () => {
+    const queryString2 = window.location.search;
+    const urlParams2 = new URLSearchParams(queryString2);
+    const storeParams2 = urlParams2.get('data-filter');
+    for(var x = 0; x < desktop_header_items.length; x++){
+        desktop_header_items[x].removeAttribute('active');
+    }
+    document.querySelector(`.desktop-header--item[data-collection=${storeParams2}]`).setAttribute('active','')
+    dropdown.value = storeParams2;
+})
