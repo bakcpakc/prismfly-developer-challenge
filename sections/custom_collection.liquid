@@ -1,5 +1,5 @@
 {{ 'custom_collection.css' | asset_url | stylesheet_tag }}
-<section class="section__custom_collection">
+<section class="section__custom_collection" data-collection-filter="">
 
   <div class="section_header">
     <div class="header_desktop">
@@ -9,16 +9,68 @@
           <div
             class="desktop-header--item"
             data-collection-id="{{ block.settings.collection.id }}"
-            data-collection="{{ block.settings.collection.title | downcase }}">
+            data-collection="{{ block.settings.collection.title | downcase }}"
+            data-collection-url="{{ block.settings.collection.url | downcase }}">
             {{ block.settings.collection.title | upcase }}</div>
 
         {% endcase %}
       {% endfor %}
     </div>
 
+    <div class="header_mobile">
+      <select name="collection" id="collection_dropdown">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'custom_collection' %}
+            <option
+              class="desktop-header--item"
+              value="{{ block.settings.collection.title | downcase }}"
+              data-collection-id="{{ block.settings.collection.id }}"
+              data-collection="{{ block.settings.collection.title | downcase }}"
+              data-collection-url="{{ block.settings.collection.url | downcase }}">
+              {{ block.settings.collection.title | upcase }}</option>
+
+          {% endcase %}
+        {% endfor %}
+      </select>
+
+    </div>
   </div>
 
+  <div class="section_products">
+    <button class="link_to_collection">view all products
+    </button>
+    <div class="product_container">
 
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'custom_collection' %}
+
+          {% for product in block.settings.collection.products %}
+
+            <div class="product-item" data-collection="{{ block.settings.collection }}">
+              <img src="{{ product.featured_image | product_img_url: 'large' }}">
+              {{ product.title }}
+            </div>
+
+          {% endfor %}
+
+        {% endcase %}
+      {% endfor %}
+    </div>
+
+    {% comment %} {% for product in collections['all'].products %}
+    {{ product.title }} test {{ product.collections['mattress'] }}
+    {% endfor %} {% endcomment %}
+
+
+
+    {% comment %} 
+    {% paginate collections.products by 12 %}
+    {% for product in collection.products %}
+    {{ product.title }}
+    {% endfor %}
+    {% endpaginate %} {% endcomment %}</div>
 </section>
 
 

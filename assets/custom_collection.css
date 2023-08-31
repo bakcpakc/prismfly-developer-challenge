@@ -10,7 +10,8 @@
     column-gap: 2px;
 }
 
-.desktop-header--item:hover {
+.desktop-header--item:hover,
+.desktop-header--item[active=""]{
     color: #004892;
     border-bottom: 2px solid #004892;
 }
@@ -23,4 +24,78 @@
     padding: 10px 30px;
     cursor: pointer;
     border-bottom: 2px solid transparent;
+}
+.section_products {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.product-item img {
+    aspect-ratio: 1 / 1;
+    max-width: 300px;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+}
+.product-item {
+    display: flex;
+    flex-direction: column;
+    object-fit: cover;
+    display: none;
+}
+
+.section__custom_collection[data-collection-filter="all"] .product-item[data-collection="all"],
+.section__custom_collection[data-collection-filter="all"] .product-item[data-collection="all-collection"], 
+.section__custom_collection[data-collection-filter="bases"] .product-item[data-collection="bases"],
+.section__custom_collection[data-collection-filter="bedding"] .product-item[data-collection="bedding"],
+[data-collection-filter="bedroom"] .product-item[data-collection="bedroom"],
+[data-collection-filter="mattresses"] .product-item[data-collection="mattresses"],
+[data-collection-filter="mattresses"] .product-item[data-collection="mattresses"]{
+    display: flex;
+}
+
+.product_container {
+    display: grid;
+    column-gap: 10px;
+    row-gap: 10px;
+    justify-content: flex-start;
+    grid-template-columns: auto auto auto;
+}
+
+.link_to_collection {
+    padding: 10px 30px;
+    border-radius: 50px;
+    border: unset;
+    background: #004892;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+.header_mobile{
+    display: none;
+}
+
+@media( max-width: 768px){
+    .header_mobile{
+        display: flex;
+        justify-content: center;
+    }
+    select#collection_dropdown {
+        padding: 5px;
+    }
+    .header_desktop{
+        display: none;
+    }
+    .section_products{
+        padding: 0 10px
+    }
+    .product_container {
+        grid-template-columns: auto auto ;
+    }
+    .header_desktop {
+        flex-direction: column;
+    }
 }
