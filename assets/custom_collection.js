@@ -5,8 +5,16 @@ const dropdown = document.querySelector('#collection_dropdown');
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-
 const storeParams = urlParams.get('data-filter');
+
+let css = '',
+head = document.head || document.getElementsByTagName('head')[0],
+style = document.createElement('style');
+style.setAttribute('id', 'custom_styling');
+
+style.type = 'text/css';
+head.appendChild(style);
+
 
 
 
@@ -26,10 +34,12 @@ window.addEventListener('load', () => {
         document.querySelector(`.desktop-header--item[data-collection=all`).setAttribute('active','')
         
         updateLinkCta('all');
+        showProducts('all');
     }
     else{
         document.querySelector(`.desktop-header--item[data-collection=${storeParams}]`).setAttribute('active','')
         updateLinkCta(storeParams);
+        showProducts(storeParams);
     }
 });
 
@@ -43,6 +53,7 @@ for(let i = 0; i < desktop_header_items.length; i++){
         section_container.setAttribute('data-collection-filter', `${desktop_header_items[i].getAttribute('data-collection')}`)
         window.history.pushState('', `${desktop_header_items[i].getAttribute('data-collection')}`, `custom-collection?data-filter=${desktop_header_items[i].getAttribute('data-collection')}`)
         updateLinkCta(section_container.getAttribute('data-collection-filter'));
+        showProducts(desktop_header_items[i].getAttribute('data-collection'));
     });
 }
 
@@ -52,6 +63,7 @@ dropdown.addEventListener('change', () => {
     window.history.pushState('', ``, `custom-collection?data-filter=${dropdown.value}`)
     updateLinkCta(section_container.getAttribute('data-collection-filter'));
     updateLinkCta(dropdown.value);
+    showProducts(dropdown.value);
 })
 
 // update 'VIEW ALL' CTA
@@ -65,6 +77,12 @@ function updateLinkCta(filter){
     link_to_collection.addEventListener('click', () => {
         location.href = `/collections/${filter}`
     });
+}
+
+function showProducts(filter){
+    
+    css = `[data-collection-filter="${filter}"] .product-item[data-collection="${filter}"]{ display: flex }`
+    style.replaceChildren(document.createTextNode(css));
 }
 
 window.addEventListener('resize', () => {

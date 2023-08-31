@@ -46,7 +46,7 @@
     display: none;
 }
 
-.section__custom_collection[data-collection-filter="all"] .product-item[data-collection="all"],
+/* .section__custom_collection[data-collection-filter="all"] .product-item[data-collection="all"],
 .section__custom_collection[data-collection-filter="all"] .product-item[data-collection="all-collection"], 
 .section__custom_collection[data-collection-filter="bases"] .product-item[data-collection="bases"],
 .section__custom_collection[data-collection-filter="bedding"] .product-item[data-collection="bedding"],
@@ -54,7 +54,7 @@
 [data-collection-filter="mattresses"] .product-item[data-collection="mattresses"],
 [data-collection-filter="mattresses"] .product-item[data-collection="mattresses"]{
     display: flex;
-}
+} */
 
 .product_container {
     display: grid;
@@ -82,6 +82,7 @@
     .header_mobile{
         display: flex;
         justify-content: center;
+        padding: 20px;
     }
     select#collection_dropdown {
         padding: 5px;
